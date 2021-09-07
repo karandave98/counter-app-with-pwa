@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --primary-color: #fff;
+    --nav-color: #e3f2fd;
+    --secondary-color: #79ecc4;
+    --font-color: #000;
+  } // we can also define variables with JavaScript
+
+  
+$BG_COLOR: var(--primary-color);
+$NAV_CLR: var(--nav-color);;
+$SECONDARY_CLR: var(--secondary-color);
+$FONT_CLR: var(--font-color);
+
+body {
+    color: $FONT_CLR !important;
+    background-color: $BG_COLOR !important; 
+}
+.app-bg-color {
+    background-color: $NAV_CLR !important;
+}
+
+.sec-bg-color {
+    background-color: $SECONDARY_CLR !important;
+}
+
+.sec-color {
+    color:  $SECONDARY_CLR !important;;
+}
