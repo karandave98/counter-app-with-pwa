@@ -8,6 +8,8 @@ import { PageFooterComponent } from './layout/page-footer/page-footer.component'
 import { PageHeaderComponent } from './layout/page-header/page-header.component';
 import { PageCounterComponent } from './page-counter/page-counter.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
